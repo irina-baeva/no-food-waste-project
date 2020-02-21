@@ -7,9 +7,10 @@ const app = express();
 //Connect DB
 connectDB();
 
-// app.use(express.json());
-// app.use(express.urlencoded({extended: false}));
-// app.use(bodyParser.json())
+//define routes 
+app.use('/api/auth', require('./routes/api/auth'))
+
+
 app.get('/', (req, res) => res.send('API is runnig'))
 
 app.listen(PORT, () => {
