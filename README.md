@@ -9,8 +9,8 @@ Created by Team of developers and data scientists: Irina Baeva, Behnaz Derakhsha
 Tech Stack:
 
 - Frontend: React
-- Backend: Node
-- DataBase: PostgreSQL
+- Backend: Node(Express)
+- DataBase: MongoDB
 
 ---
 
