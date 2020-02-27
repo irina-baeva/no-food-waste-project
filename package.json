@@ -4,7 +4,10 @@
   "description": "Full Stack App",
   "main": "server.js",
   "scripts": {
-    "server": "nodemon server"
+    "start": "node server",
+    "server": "nodemon server",
+    "client": "npm start --prefix client",
+    "dev": "concurrently \"npm run server\" \"npm run client\""
   },
   "keywords": [],
   "author": "",
@@ -23,5 +26,6 @@
     "jsonwebtoken": "^8.5.1",
     "mongoose": "^5.9.1",
     "pg": "^7.18.1"
-  }
+  },
+  "proxy": "http://localhost:5050"
 }
