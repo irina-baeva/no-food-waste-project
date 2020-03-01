@@ -70,8 +70,8 @@ export default withStyles(styles)(
                       label="Email"
                       type="email"
                       autoComplete=""
-                      id="input-with-icon-grid"
-                      label="With a grid"
+                      id="email"
+                      label="Email"
                     />
                   </Grid>
                 </Grid>
