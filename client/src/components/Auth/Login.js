@@ -4,11 +4,10 @@ import React, { Component } from "react";
 // import TextField from "@material-ui/core/TextField";
 // import RaisedButton from "@material-ui/core/RaisedButton"
 import Button from "@material-ui/core/Button";
-import Toolbar from "@material-ui/core/Toolbar";
 import IconButton from "@material-ui/core/IconButton";
 import Typography from "@material-ui/core/Typography";
 import TextField from "@material-ui/core/TextField";
-import { AppBar, Paper, Container, Grid } from "@material-ui/core";
+import { Paper, Container, Grid } from "@material-ui/core";
 import { withStyles } from "@material-ui/core/styles";
 import AccountCircle from "@material-ui/icons/AccountCircle";
 import LockIcon from "@material-ui/icons/Lock";
@@ -51,13 +50,6 @@ export default withStyles(styles)(
       const { classes } = this.props;
       return (
         <React.Fragment className={classes.root}>
-          <AppBar>
-            <Toolbar variant="dense">
-              <Typography variant="h6" color="inherit">
-                Sustanable METRO
-              </Typography>
-            </Toolbar>
-          </AppBar>
           <Container maxWidth="sm">
             <Paper className={classes.paper}>
               <form className={classes.form}>

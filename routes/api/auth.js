@@ -7,10 +7,10 @@ const { check, validationResult } = require("express-validator");
 // we bring middleware auth
 const auth = require('../../middleware/auth')
 const User = require('../../models/User')
-// @route GET api/auth
-//@desc Test route
-//@access public or provate
-//if we pass auth like 3rd parameter it is already make rout protected
+//  @route GET api/auth
+//  @desc Test route
+//  @access public or private
+//  if we pass auth like 3rd parameter it is already make rout protected
 router.get('/', auth, async (req, res) => {
     try {
         const user = await User.findById(req.user.id).select('-password');

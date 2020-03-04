@@ -1,9 +1,12 @@
 import React, { Fragment } from "react";
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
+
 import "./App.css";
 // import Landing from "./components/layout/Landing";
 import { MuiThemeProvider, createMuiTheme } from "@material-ui/core/styles";
 import UserForm from "./components/layout/UserForm";
 import Navbar from "./components/layout/Navbar";
+import Landing from "./components/layout/Landing";
 
 const palette = {
   primary: { main: "#80CBC4", contrastText: "#FAFAFA" },
@@ -15,8 +18,8 @@ function App() {
   return (
     <MuiThemeProvider theme={theme}>
       <Fragment>
-        {/* <Navbar /> */}
-        <UserForm />
+        <Navbar />
+        <Route exact path='/' component = {Landing} />
       </Fragment>
     </MuiThemeProvider>
   );
