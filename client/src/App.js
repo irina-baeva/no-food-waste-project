@@ -4,7 +4,7 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 import "./App.css";
 // import Landing from "./components/layout/Landing";
 import { MuiThemeProvider, createMuiTheme } from "@material-ui/core/styles";
-import UserForm from "./components/layout/UserForm";
+import Login from "./components/Auth/Login";
 import Navbar from "./components/layout/Navbar";
 import Landing from "./components/layout/Landing";
 
@@ -19,7 +19,7 @@ function App() {
     <MuiThemeProvider theme={theme}>
       <Fragment>
         <Navbar />
-        <Route exact path='/' component = {Landing} />
+        {/* <Route exact path='/' component = {Landing} /> */}
       </Fragment>
     </MuiThemeProvider>
   );
