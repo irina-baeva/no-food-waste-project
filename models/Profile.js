@@ -15,6 +15,10 @@ const ProfileSchema = new mongoose.Schema({
     position:{
         type: String
     },
+    //to try to get api 
+    githubusername:{
+        type: String
+    },
     social: {
         linkedin:{
             type: String
