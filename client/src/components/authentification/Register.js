@@ -5,6 +5,9 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faUser } from '@fortawesome/free-solid-svg-icons'
 import axios from 'axios'
 import {Link} from "react-router-dom"
+import {connect} from 'react-redux';
+import {setAlert} from '../../actions/alert';
+import PropTypes from 'prop-types'
 
 
 
@@ -35,7 +38,7 @@ const useStylesRegister = makeStyles({
     }
 });
 
-export default function Register() {
+const Register = (props) => {
     const classes = useStylesRegister();
     //useState hook
     const [formData, setFormData] = useState({
@@ -57,7 +60,7 @@ export default function Register() {
         e.preventDefault();
         //check if password match
         if (password !== password2) {
-            console.log("Passwords are not matching")
+            props.setAlert("Passwords do not match", 'danger')
         } else {
 
             console.log('Success')
@@ -150,4 +153,9 @@ export default function Register() {
         </React.Fragment>
     );
 }
-{/* export default Register; */ }
+
+Register.propTypes = {
+    setAlert: PropTypes.func.isRequired,
+}
+export default connect(null, {setAlert})(Register)
+
