@@ -8,6 +8,9 @@ import Login from "./components/authentification/Login";
 import Register from "./components/authentification/Register";
 import Navbar from "./components/layout/Navbar";
 import Landing from "./components/layout/Landing";
+// Redux
+import { Provider} from 'react-redux';
+import store from './store.js'
 
 const palette = {
   primary: { main: "#80CBC4", contrastText: "#FAFAFA" },
@@ -18,8 +21,8 @@ let theme = createMuiTheme({ palette, themeName });
 
 function App() {
   return (
+    <Provider store = {store}>
     <MuiThemeProvider theme={theme}>
-
     <Router>
         <Fragment>
           <Navbar />
@@ -34,7 +37,7 @@ function App() {
         </Fragment>
     </Router>
     </MuiThemeProvider>
-
+    </Provider>
 
   );
 }
