@@ -4,6 +4,8 @@ import { makeStyles } from "@material-ui/core/styles";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faUser } from '@fortawesome/free-solid-svg-icons'
 import axios from 'axios'
+import {Link} from "react-router-dom"
+
 
 
 const useStylesRegister = makeStyles({
@@ -141,7 +143,7 @@ export default function Register() {
                             </Button>
                     </form>
                     <p className="">
-                        Already have an account? <a href="login.html">Sign In</a>
+                        Already have an account? <Link to="/login">Sign In</Link>
                     </p>
                 </Paper>
             </Container>
