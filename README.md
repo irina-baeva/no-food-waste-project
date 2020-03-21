@@ -23,3 +23,5 @@ To run app:
    Mongodb connected...
 4. to check endpoints use postman
    for example GET request to http://localhost:5050/api/auth should give you response "Auth route"
+5. to run a fronetend and backend 
+   npm run dev
