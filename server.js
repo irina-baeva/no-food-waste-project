@@ -4,10 +4,11 @@ const {
     check,
     validationResult
 } = require('express-validator')
+const cors = require('cors')
 const PORT = process.env.PORT || 5050;
 
 const app = express();
-
+app.use(cors())
 //Connect DB
 connectDB();
 
