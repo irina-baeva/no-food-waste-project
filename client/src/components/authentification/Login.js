@@ -1,7 +1,10 @@
 import React, { useState } from "react";
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faUser } from '@fortawesome/free-solid-svg-icons'
-import {Link} from "react-router-dom"
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faUser } from '@fortawesome/free-solid-svg-icons';
+import { Link } from "react-router-dom";
+import { connect } from "react-redux";
+import PropTypes from "prop-types";
+import { login } from '../../actions/auth'
 // import MuiThemeProvider from "material-ui/styles/MuiThemeProvider";
 // import AppBar from "@material-ui/core/AppBar";
 // import TextField from "@material-ui/core/TextField";
@@ -10,7 +13,7 @@ import Button from "@material-ui/core/Button";
 import IconButton from "@material-ui/core/IconButton";
 import Typography from "@material-ui/core/Typography";
 import TextField from "@material-ui/core/TextField";
-import { Paper, Container, Grid } from "@material-ui/core";
+import { Paper, Container, Grid, FormControl } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 import AccountCircle from "@material-ui/icons/AccountCircle";
 import LockIcon from "@material-ui/icons/Lock";
@@ -42,41 +45,68 @@ const useStylesLogin = makeStyles({
   }
 });
 
-export default function Register() {
+const Login = ({login}) => {
   const classes = useStylesLogin();
   //useState hook
   const [formData, setFormData] = useState({
     email: '',
     password: '',
-
   });
   const { email, password } = formData;
 
   const onChange = e => setFormData({
-      ...formData,
-      [e.target.name]: e.target.value
-  });
-  
+    ...formData,
+    [e.target.name]: e.target.value
+});
 
   const onSubmit = async e => {
     e.preventDefault();
-   console.log('Success')
-}
+    login(email, password)
+  }
 
 
-    return (
-      <React.Fragment >
-        <Container className={classes.root} maxWidth="sm">
-        <h1 >Log In</h1>
-                <p >
-                    <FontAwesomeIcon icon={faUser} /> Log Into your account</p>
-          <Paper className={classes.paper}>
-            <form className={classes.form} onSubmit={e => onSubmit(e)}>
-              <Grid container spacing={1} alignItems="flex-end">
-                <Grid item>
-                  <AccountCircle />
-                </Grid>
-                <Grid item>
+  return (
+    <React.Fragment >
+      <Container className={classes.root} maxWidth="sm">
+        <p >
+        <FontAwesomeIcon icon={faUser} /> Log into your account</p>
+        <Paper className={classes.paper}>
+          <form className={classes.form} onSubmit={e => onSubmit(e)}>
+        
+                        <FormControl>
+                            <Input
+                                type="email"
+                                placeholder="Email Address"
+                                name="email"
+                                value={email}
+                                onChange={e => onChange(e)}
+                            />
+                        </FormControl>
+                        <FormControl >
+                            <Input
+                                type="password"
+                                placeholder="Password"
+                                name="password"
+                                minLength="6"
+                                value={password}
+                                onChange={e => onChange(e)}
+                            />
+                        </FormControl>
+                        <Button
+                            variant="contained"
+                            style={{ marginTop: "50px" }}
+                            color="primary"
+                            type="submit"
+                            label="Login"
+                            value="Login"
+                        > Login
+                            </Button>
+            {/* <Grid container spacing={1} alignItems="flex-end">
+              <Grid item>
+                <AccountCircle />
+              </Grid>
+              <Grid item>
+                <FormControl>
                   <Input
                     label="Email"
                     type="email"
@@ -86,40 +116,47 @@ export default function Register() {
                     required
                     onChange={e => onChange(e)}
                   />
-                </Grid>
+                </FormControl>
               </Grid>
-              <Grid container spacing={1} alignItems="flex-end">
-                <Grid item>
-                  <LockIcon />
-                </Grid>
-                <Grid item>
+            </Grid>
+            <Grid container spacing={1} alignItems="flex-end">
+              <Grid item>
+                <LockIcon />
+              </Grid>
+              <Grid item>
+                <FormControl>
                   <Input
                     style={{ marginTop: "10px" }}
-                    id=""
                     label="Password"
                     type="password"
-                    autoComplete="current-password"
                     onChange={e => onChange(e)}
                     value={password}
                   />
-                </Grid>
+                </FormControl>
+
               </Grid>
-              <Button
-                style={{ marginTop: "50px" }}
-                variant="contained"
-                color="primary"
-                type="submit"
-                href="#contained-buttons"
-                label="Sign In"
-              >
-                Sign In
-                </Button>
-            </form>
-            <p className="">
-                        Do not have an account? <Link to="/register">Sign Up</Link>
-                    </p>
-          </Paper>
-        </Container>
-      </React.Fragment>
-    );
+
+            </Grid>
+            <Button
+              style={{ marginTop: "50px" }}
+              variant="contained"
+              color="primary"
+              type="submit"
+              label="Sign In"
+              value="login"
+            >
+              Sign In
+                </Button> */}
+          </form>
+          <p className="">
+            Do not have an account? <Link to="/register">Sign Up</Link>
+          </p>
+        </Paper>
+      </Container>
+    </React.Fragment>
+  );
 }
+Login.propTypes = {
+  login: PropTypes.func.isRequired,
+}
+export default connect(null, { login })(Login);

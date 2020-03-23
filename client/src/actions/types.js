@@ -6,5 +6,9 @@ export const REGISTER_FAIL = 'REGISTER_FAIL';
 export const USER_LOADED = 'USER_LOADED';
 //if something go wrong
 export const AUTH_ERROR = 'AUTH_ERROR';
+//login type
+export const LOGIN_SUCCESS = 'LOGIN_SUCCESS';
+//if something go wrong
+export const LOGIN_FAIL = 'LOGIN_FAIL';
 
 
