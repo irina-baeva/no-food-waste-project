@@ -1,42 +1,68 @@
-import React from "react";
-import { AppBar, Toolbar, Typography, Button } from "@material-ui/core";
+import React, { Fragment } from "react";
+import { AppBar, Toolbar, Typography, Button, IconButton } from "@material-ui/core";
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { logout } from '../../actions/auth';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faUser } from '@fortawesome/free-solid-svg-icons';
+import { faSignOutAlt, faSignInAlt, faUserPlus } from '@fortawesome/free-solid-svg-icons';
+import { makeStyles } from "@material-ui/core/styles";
+
+
+const useStylesNavbar = makeStyles({
+  root: {
+    flexGrow: 1,
+    justifyContent: "space-between",
+  },
+  link: {
+    color: "#fff",
+    textDecoration: 'none',
+    fontFamily: "Helvetica",
+    fontWeight: 500,
+    marginRight: "20px",
+    fontSize: "16px",
+  },
+  icon:{
+    marginRight: "5px",
+
+  }
+
+});
+
 
 
 const Navbar = ({ auth: { isAuthenticated, loading }, logout }) => {
+  const classes = useStylesNavbar();
 
   const authLinks = (
-    <li>
-      <a onClick={logout} href="#!">
-        <FontAwesomeIcon icon={faUser} /> Log out
-        </a>
-    </li>
+    <Button className={classes.link} color="inherit" onClick={logout} href="#!">
+      <FontAwesomeIcon className={classes.icon} icon={faSignOutAlt} /> Log out
+    </Button>
   )
+
   const guestLinks = (
-    <ul>
-      <li>
-        <Link to="/register">
-          Register
+    <ul className= {classes.list}>
+      <Link className={classes.link} to="/register">
+      <FontAwesomeIcon className={classes.icon} icon={faUserPlus} /> 
+
+        REGISTER
     </Link>
-      </li>
-      <li>
-        <Link to="/login">
-          Login
+      <Link className={classes.link} to="/login">
+         <FontAwesomeIcon className={classes.icon} icon={faSignInAlt} /> 
+        LOGIN
         </Link>
-      </li>
     </ul>
   )
   return (
-    <AppBar>
-      <Typography variant="h6" color="inherit">
-        Sustanable METRO
-    </Typography>
-  {!loading && (<Toolbar variant="dense"> {isAuthenticated ? authLinks : guestLinks} </Toolbar>)}
+    <AppBar position="static">
+      <Toolbar className={classes.root}>
+        <Typography variant="h6" color="inherit">
+          Sustanable METRO
+       </Typography>
+
+        {!loading && (<Fragment variant="dense"> {isAuthenticated ? authLinks : guestLinks} </Fragment>)}
+      </Toolbar>
+
     </AppBar>
   )
 };

@@ -36,6 +36,10 @@ const useStylesRegister = makeStyles({
         minWidth: 600,
         marginTop: "0.3rem",
         color: "#888",
+    },
+    link: {
+        color: "blue",
+        textDecoration: "none"
     }
 });
 
@@ -91,9 +95,6 @@ const Register = ({setAlert, register, isAuthenticated}) => {
     return (
         <React.Fragment >
             <Container className={classes.root} maxWidth="sm">
-                <h1 >Sign Up</h1>
-                <p >
-                    <FontAwesomeIcon icon={faUser} />  Create Your Account</p>
                 <Paper className={classes.paper}>
                     <form className={classes.form} onSubmit={e => onSubmit(e)}>
                         <FormControl>
@@ -149,7 +150,7 @@ const Register = ({setAlert, register, isAuthenticated}) => {
                             </Button>
                     </form>
                     <p className="">
-                        Already have an account? <Link to="/login">Sign In</Link>
+                        Already have an account? <Link className={classes.link} to="/login">Sign In</Link>
                     </p>
                 </Paper>
             </Container>

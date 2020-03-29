@@ -42,7 +42,11 @@ const useStylesLogin = makeStyles({
     display: "flex",
     alignItems: "center",
     flexDirection: "column"
-  }
+  },
+  link: {
+    color: "blue",
+    textDecoration: "none"
+}
 });
 
 const Login = ({login, isAuthenticated}) => {
@@ -70,8 +74,6 @@ if(isAuthenticated){
   return (
     <React.Fragment >
       <Container className={classes.root} maxWidth="sm">
-        <p >
-        <FontAwesomeIcon icon={faUser} /> Log into your account</p>
         <Paper className={classes.paper}>
           <form className={classes.form} onSubmit={e => onSubmit(e)}>
         
@@ -151,7 +153,7 @@ if(isAuthenticated){
                 </Button> */}
           </form>
           <p className="">
-            Do not have an account? <Link to="/register">Sign Up</Link>
+            Do not have an account? <Link className={classes.link} to="/register">Sign Up</Link>
           </p>
         </Paper>
       </Container>
