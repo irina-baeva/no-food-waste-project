@@ -10,5 +10,7 @@ export const AUTH_ERROR = 'AUTH_ERROR';
 export const LOGIN_SUCCESS = 'LOGIN_SUCCESS';
 //if something go wrong
 export const LOGIN_FAIL = 'LOGIN_FAIL';
+//logout type
+export const LOGOUT = 'LOGOUT';
 
 

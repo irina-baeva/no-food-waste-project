@@ -4,7 +4,7 @@ import { makeStyles } from "@material-ui/core/styles";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faUser } from '@fortawesome/free-solid-svg-icons'
 import axios from 'axios'
-import {Link} from "react-router-dom"
+import {Link, Redirect} from "react-router-dom"
 import {connect} from 'react-redux';
 import {setAlert} from '../../actions/alert';
 import {register} from '../../actions/auth';
@@ -39,7 +39,7 @@ const useStylesRegister = makeStyles({
     }
 });
 
-const Register = ({setAlert, register}) => {
+const Register = ({setAlert, register, isAuthenticated}) => {
     const classes = useStylesRegister();
     //useState hook
     const [formData, setFormData] = useState({
@@ -85,7 +85,9 @@ const Register = ({setAlert, register}) => {
             // }
         }
     }
-
+    if(isAuthenticated){
+        return <Redirect to="/dashboard"/>
+      }
     return (
         <React.Fragment >
             <Container className={classes.root} maxWidth="sm">
@@ -154,10 +156,13 @@ const Register = ({setAlert, register}) => {
         </React.Fragment>
     );
 }
-
+const mapStateToProps = state =>({
+    isAuthenticated: state.auth.isAuthenticated
+  })
 Register.propTypes = {
     setAlert: PropTypes.func.isRequired,
     register: PropTypes.func.isRequired,
+    isAuthenticated: PropTypes.bool,
 }
-export default connect(null, {setAlert, register})(Register)
+export default connect(mapStateToProps, {setAlert, register})(Register)
 

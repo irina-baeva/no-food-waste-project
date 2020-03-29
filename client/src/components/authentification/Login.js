@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUser } from '@fortawesome/free-solid-svg-icons';
-import { Link } from "react-router-dom";
+import { Link, Redirect } from "react-router-dom";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
 import { login } from '../../actions/auth'
@@ -45,7 +45,7 @@ const useStylesLogin = makeStyles({
   }
 });
 
-const Login = ({login}) => {
+const Login = ({login, isAuthenticated}) => {
   const classes = useStylesLogin();
   //useState hook
   const [formData, setFormData] = useState({
@@ -63,8 +63,10 @@ const Login = ({login}) => {
     e.preventDefault();
     login(email, password)
   }
-
-
+//redirect to dashboard if logged in 
+if(isAuthenticated){
+  return <Redirect to="/dashboard"/>
+}
   return (
     <React.Fragment >
       <Container className={classes.root} maxWidth="sm">
@@ -156,7 +158,11 @@ const Login = ({login}) => {
     </React.Fragment>
   );
 }
+const mapStateToProps = state =>({
+  isAuthenticated: state.auth.isAuthenticated
+})
 Login.propTypes = {
   login: PropTypes.func.isRequired,
+  isAuthenticated: PropTypes.bool,
 }
-export default connect(null, { login })(Login);
+export default connect(mapStateToProps, { login })(Login);
