@@ -35,9 +35,16 @@ const Navbar = ({ auth: { isAuthenticated, loading }, logout }) => {
   const classes = useStylesNavbar();
 
   const authLinks = (
+    <div>
+    <Link className={classes.link} to="/dashboard">
+    <Button  className={classes.link}>
+   DASHBOARD
+   </Button>
+   </Link>
     <Button className={classes.link} color="inherit" onClick={logout} href="#!">
       <FontAwesomeIcon className={classes.icon} icon={faSignOutAlt} /> Log out
     </Button>
+    </div>
   )
 
   const guestLinks = (

@@ -47,8 +47,6 @@ router.post('/', [auth, [
         if (location) profileFields.location = location;
         if (bio) profileFields.location = bio;
         if (position) profileFields.location = position;
-        // #TODO in order I want to try api external
-        if (githubusername) profileFields.location = githubusername;
         //for social is different, we build object and then check
         profileFields.social = {}
         if (linkedin) profileFields.social.linkedin = linkedin;
