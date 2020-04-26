@@ -1,34 +1,21 @@
 import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import Drawer from "@material-ui/core/Drawer";
-import AppBar from "@material-ui/core/AppBar";
-import CssBaseline from "@material-ui/core/CssBaseline";
 import Toolbar from "@material-ui/core/Toolbar";
 import List from "@material-ui/core/List";
-import Typography from "@material-ui/core/Typography";
-import Divider from "@material-ui/core/Divider";
 import ListItem from "@material-ui/core/ListItem";
 import ListItemIcon from "@material-ui/core/ListItemIcon";
-import ListItemText from "@material-ui/core/ListItemText";
-import InboxIcon from "@material-ui/icons/MoveToInbox";
-import MailIcon from "@material-ui/icons/Mail";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faChartArea } from "@fortawesome/free-solid-svg-icons";
 import { faGlobe } from "@fortawesome/free-solid-svg-icons";
-import { Link, Route, Switch } from "react-router-dom";
-import PropTypes from "prop-types";
-import { connect } from "react-redux";
-import { getCurrentProfile } from "../../actions/profile";
-import GlobalStat from "./GlobalStat";
+import { Link } from "react-router-dom";
 
 const drawerWidth = 240;
 
 const useStyles = makeStyles((theme) => ({
   root: {
     display: "flex",
-  },
-  appBar: {
-    zIndex: theme.zIndex.drawer + 1,
+    // zIndex: -100,
   },
   drawer: {
     width: drawerWidth,
@@ -43,6 +30,15 @@ const useStyles = makeStyles((theme) => ({
   content: {
     flexGrow: 1,
     padding: theme.spacing(3),
+  },
+  link: {
+    textDecoration: "none",
+    color: "inherit",
+    margin: "20px 0",
+    textTransform: "uppercase",
+  },
+  listIcon: {
+    minWidth: "30px",
   },
 }));
 
@@ -61,14 +57,25 @@ export default function ClippedDrawer() {
         <Toolbar />
         <div className={classes.drawerContainer}>
           <List>
-            <Link to="/global-stat">
-              <FontAwesomeIcon className={classes.icon} icon={faGlobe} />
-              Global Statistics
-            </Link>
-            <Link to="/local-stat">
-              <FontAwesomeIcon className={classes.icon} icon={faChartArea} />
-              Statistics of the store
-            </Link>
+            <ListItem button>
+              <Link className={classes.link} to="/global-stat">
+                <ListItemIcon className={classes.listIcon}>
+                  <FontAwesomeIcon className={classes.icon} icon={faGlobe} />
+                </ListItemIcon>
+                Global Statistics
+              </Link>
+            </ListItem>
+            <ListItem button>
+              <Link to="/local-stat" className={classes.link}>
+                <ListItemIcon className={classes.listIcon}>
+                  <FontAwesomeIcon
+                    className={classes.icon}
+                    icon={faChartArea}
+                  />
+                </ListItemIcon>
+                Depo statistics
+              </Link>
+            </ListItem>
           </List>
         </div>
       </Drawer>

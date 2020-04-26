@@ -44,13 +44,6 @@ const Dashboard = ({
             <Link to="/create-profile">Create profile</Link>
           </Fragment>
         )}
-        <>
-          <p>If you want to check statistics</p>
-          <Switch>
-            <Link to="/global-stat">here</Link>
-            <Route exact path="/department-stat" component={GlobalStat} />
-          </Switch>
-        </>
       </main>
     </div>
   );

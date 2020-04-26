@@ -42,16 +42,16 @@ function App() {
           <Fragment>
             <Navbar />
             <Route exact path="/" component={Landing} />
-            <section className="container">
-              <Alert />
-              <Switch>
-                <Route exact path="/register" component={Register} />
-                <Route exact path="/login" component={Login} />
-                <PrivateRoute exact path="/dashboard" component={Dashboard} />
-                <Route exact path="/global-stat" component={GlobalStat} />
-                <Route exact path="/local-stat" component={LocalStat} />
-              </Switch>
-            </section>
+            {/* <section className="container"> */}
+            <Alert />
+            <Switch>
+              <Route exact path="/register" component={Register} />
+              <Route exact path="/login" component={Login} />
+              <PrivateRoute exact path="/dashboard" component={Dashboard} />
+              <Route exact path="/global-stat" component={GlobalStat} />
+              <Route exact path="/local-stat" component={LocalStat} />
+            </Switch>
+            {/* </section> */}
           </Fragment>
         </Router>
       </MuiThemeProvider>
