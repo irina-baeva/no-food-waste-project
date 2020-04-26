@@ -15,6 +15,7 @@ import store from './store.js'
 import { loadUser } from './actions/auth';
 import setAuthToken from './utils/setAuthToken'
 import Dashboard from './components/dashboard/Dashboard'
+import GlobalStat from './components/dashboard/GlobalStat'
 import PrivateRoute from './components/routing/PrivateRoute'
 
 
@@ -47,6 +48,8 @@ function App() {
                 <Route exact path='/register' component={Register} />
                 <Route exact path='/login' component={Login} />
                 <PrivateRoute exact path='/dashboard' component={Dashboard} />
+                <Route exact path='/global-stat' component={GlobalStat} />
+
               </Switch>
             </section>
           </Fragment>
