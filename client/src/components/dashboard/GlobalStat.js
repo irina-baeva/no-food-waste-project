@@ -1,82 +1,47 @@
-import React, { Component } from "react";
-import Chart from "chart.js";
-import Drawer from "./Drawer";
-// import classes from "./LineGraph.module.css";
-// import Data from './january.csv'
-export default class LineGraph extends Component {
-  chartRef = React.createRef();
+import React, { useState, useEffect } from "react";
+import ReactMapGL, { Marker, Popup } from "react-map-gl";
+import * as countryData from "./data/countries.json";
 
-  componentDidMount() {
-    const myChartRef = this.chartRef.current.getContext("2d");
+function GlobalStat() {
+  const [viewport, setViewport] = useState({
+    latitude: 0,
+    longitude: 0,
+    zoom: 2,
+    width: "100vw",
+    height: "100vh",
+  });
+  // const [selectedPark, setSelectedPark] = useState(null);
 
-    new Chart(myChartRef, {
-      type: "line",
-      data: {
-        //Bring in data
-        labels: [
-          "2020-01-02",
-          "2020-01-03",
-          "2020-01-06",
-          " 2020-01-07",
-          "2020-01-08",
-          "2020-01-09",
-          "2020-01-10",
-          " 2020-01-13",
-          " 2020-01-14",
-          "2020-01-15",
-          "2020-01-16",
-          "2020-01-17",
-          "2020-01-20",
-          "2020-01-21",
-          "2020-01-22",
-          "2020-01-23",
-          "2020-01-24",
-          "2020-01-27",
-          "2020-01-28",
-          " 2020-01-29",
-          "2020-01-30",
-          "2020-01-31",
-        ],
-        datasets: [
-          {
-            label: "Sales",
-            data: [
-              32850,
-              31077.26,
-              38821,
-              26094.23,
-              30270,
-              29162,
-              18242,
-              39469,
-              35434,
-              25081,
-              41239,
-              23136,
-              51498,
-              30925,
-              33412,
-              31381,
-              20504,
-              36640,
-              48451,
-              29777,
-              28780,
-            ],
-          },
-        ],
-      },
-      options: {
-        //Customize chart options
-      },
-    });
-  }
-  render() {
-    return (
-      <div>
-        <Drawer />
-        <canvas id="myChart" ref={this.chartRef} />
-      </div>
-    );
-  }
+  // useEffect(() => {
+  //   const listener = (e) => {
+  //     if (e.key === "Escape") {
+  //       setSelectedPark(null);
+  //     }
+  //   };
+  //   window.addEventListener("keydown", listener);
+  // }, []);
+  return (
+    <div className="map">
+      <ReactMapGL
+        {...viewport}
+        mapboxApiAccessToken={process.env.REACT_APP_MAPBOX_TOKEN}
+        mapStyle="mapbox://styles/irsidev/ck9kagpcu1lht1iqortip975m"
+        onViewportChange={(viewport) => {
+          setViewport(viewport);
+        }}
+      >
+        {countryData.features.map((country) => (
+          <Marker
+            key="country.properties.country"
+            latitude={parseInt(country.properties.latitude)}
+            longitude={parseInt(country.properties.longitude)}
+          >
+            <p>country</p>
+          </Marker>
+        ))}
+      </ReactMapGL>
+    </div>
+  );
 }
+
+export default GlobalStat;

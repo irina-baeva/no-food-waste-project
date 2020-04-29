@@ -48,8 +48,8 @@ function App() {
               <Route exact path="/register" component={Register} />
               <Route exact path="/login" component={Login} />
               <PrivateRoute exact path="/dashboard" component={Dashboard} />
-              <Route exact path="/global-stat" component={GlobalStat} />
-              <Route exact path="/local-stat" component={LocalStat} />
+              <Route path="/global-stat" component={GlobalStat} />
+              <Route path="/local-stat" component={LocalStat} />
             </Switch>
             {/* </section> */}
           </Fragment>

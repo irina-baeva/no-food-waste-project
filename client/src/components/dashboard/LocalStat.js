@@ -3,7 +3,7 @@ import Chart from "chart.js";
 import Drawer from "./Drawer";
 // import classes from "./LineGraph.module.css";
 // import Data from './january.csv'
-export default class LineGraph extends Component {
+export default class LocalStat extends Component {
   chartRef = React.createRef();
 
   componentDidMount() {
