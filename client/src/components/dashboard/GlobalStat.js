@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import ReactMapGL, { Marker, Popup } from "react-map-gl";
-import * as countryData from "./data/data_countries_copy.json";
+import * as countryData from "./data/data_countries.json";
 
 function GlobalStat() {
   const [viewport, setViewport] = useState({
@@ -32,7 +32,7 @@ function GlobalStat() {
       >
         {countryData.features.map((country) => (
           <Marker
-            key="country.properties.id"
+            key="country.properties.name"
             latitude={parseInt(country.geometry.coordinates[1])}
             longitude={parseInt(country.geometry.coordinates[0])}
           >
@@ -54,7 +54,10 @@ function GlobalStat() {
             onClose={() => {
               setSelectedCountry(null);
             }}
-          ></Popup>
+          >
+            <div>{selectedCountry.properties.name}</div>
+            <div>{selectedCountry.properties.value_waste}</div>
+          </Popup>
         ) : null}
       </ReactMapGL>
     </div>
