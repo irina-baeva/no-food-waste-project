@@ -9,7 +9,7 @@
 .App {
   text-align: center;
 }
-.container{
+.container {
   margin-top: 70px;
 }
 .alert {
@@ -50,4 +50,7 @@
 .alert-danger {
   background: var(--danger-color);
   color: #fff;
+}
+.icon {
+  width: 25px;
 }

@@ -1,0 +1,31 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [1.601554, 42.546245]
+      },
+      "properties": {
+        "country": "AD",
+        "name": "Andorra",
+        "id": 1,
+        "value_waste": 3000
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [31.16558, 48.379433]
+      },
+      "properties": {
+        "country": "UA",
+        "name": "Ukraine",
+        "id": 2,
+        "value_waste": 3000
+      }
+    }
+  ]
+}
