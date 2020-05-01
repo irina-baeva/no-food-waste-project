@@ -1,13 +1,22 @@
 import React, { Fragment } from "react";
-import { AppBar, Toolbar, Typography, Button, IconButton } from "@material-ui/core";
-import { Link } from 'react-router-dom';
-import { connect } from 'react-redux';
-import PropTypes from 'prop-types';
-import { logout } from '../../actions/auth';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faSignOutAlt, faSignInAlt, faUserPlus } from '@fortawesome/free-solid-svg-icons';
+import {
+  AppBar,
+  Toolbar,
+  Typography,
+  Button,
+  IconButton,
+} from "@material-ui/core";
+import { Link } from "react-router-dom";
+import { connect } from "react-redux";
+import PropTypes from "prop-types";
+import { logout } from "../../actions/auth";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faSignOutAlt,
+  faSignInAlt,
+  faUserPlus,
+} from "@fortawesome/free-solid-svg-icons";
 import { makeStyles } from "@material-ui/core/styles";
-
 
 const useStylesNavbar = makeStyles({
   root: {
@@ -16,71 +25,70 @@ const useStylesNavbar = makeStyles({
   },
   link: {
     color: "#fff",
-    textDecoration: 'none',
+    textDecoration: "none",
     fontFamily: "Helvetica",
     fontWeight: 500,
     marginRight: "20px",
     fontSize: "16px",
   },
-  icon:{
+  icon: {
     marginRight: "5px",
-
-  }
-
+  },
 });
-
-
 
 const Navbar = ({ auth: { isAuthenticated, loading }, logout }) => {
   const classes = useStylesNavbar();
 
   const authLinks = (
     <div>
-    <Link className={classes.link} to="/dashboard">
-    <Button  className={classes.link}>
-   DASHBOARD
-   </Button>
-   </Link>
-    <Button className={classes.link} color="inherit" onClick={logout} href="#!">
-      <FontAwesomeIcon className={classes.icon} icon={faSignOutAlt} /> Log out
-    </Button>
+      <Link className={classes.link} to="/dashboard">
+        <Button className={classes.link}>DASHBOARD</Button>
+      </Link>
+      <Button
+        className={classes.link}
+        color="inherit"
+        onClick={logout}
+        href="#!"
+      >
+        <FontAwesomeIcon className={classes.icon} icon={faSignOutAlt} /> Log out
+      </Button>
     </div>
-  )
+  );
 
   const guestLinks = (
-    <ul className= {classes.list}>
+    <ul className={classes.list}>
       <Link className={classes.link} to="/register">
-      <FontAwesomeIcon className={classes.icon} icon={faUserPlus} /> 
-
+        <FontAwesomeIcon className={classes.icon} icon={faUserPlus} />
         REGISTER
-    </Link>
+      </Link>
       <Link className={classes.link} to="/login">
-         <FontAwesomeIcon className={classes.icon} icon={faSignInAlt} /> 
+        <FontAwesomeIcon className={classes.icon} icon={faSignInAlt} />
         LOGIN
-        </Link>
+      </Link>
     </ul>
-  )
+  );
   return (
     <AppBar position="static">
       <Toolbar className={classes.root}>
         <Typography variant="h6" color="inherit">
           Sustanable METRO
-       </Typography>
+        </Typography>
 
-        {!loading && (<Fragment variant="dense"> {isAuthenticated ? authLinks : guestLinks} </Fragment>)}
+        {!loading && (
+          <Fragment> {isAuthenticated ? authLinks : guestLinks} </Fragment>
+        )}
       </Toolbar>
-
     </AppBar>
-  )
+  );
 };
 
 Navbar.propTypes = {
   logout: PropTypes.func.isRequired,
   auth: PropTypes.object.isRequired,
-}
+};
 
-const mapStateToProp = state => ({
-  auth: state.auth
-})
+const mapStateToProp = (state) => ({
+  auth: state.auth,
+});
 
 export default connect(mapStateToProp, { logout })(Navbar);

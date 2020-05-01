@@ -25,16 +25,16 @@ function GlobalStat() {
       <ReactMapGL
         {...viewport}
         mapboxApiAccessToken={process.env.REACT_APP_MAPBOX_TOKEN}
-        mapStyle="mapbox://styles/irsidev/ck9kagpcu1lht1iqortip975m"
+        mapStyle="mapbox://styles/irsidev/ck9op03tm1mwu1ilehmo42ozl"
         onViewportChange={(viewport) => {
           setViewport(viewport);
         }}
       >
-        {countryData.features.map((country) => (
+        {countryData.features.map((country, index) => (
           <Marker
-            key="country.properties.name"
-            latitude={parseInt(country.geometry.coordinates[1])}
-            longitude={parseInt(country.geometry.coordinates[0])}
+            key={index}
+            latitude={country.geometry.coordinates[1]}
+            longitude={country.geometry.coordinates[0]}
           >
             <button
               className="marker-btn"
