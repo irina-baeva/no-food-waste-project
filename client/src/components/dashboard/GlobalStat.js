@@ -1,6 +1,7 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, Fragment } from "react";
 import ReactMapGL, { Marker, Popup } from "react-map-gl";
 import * as countryData from "./data/data_countries.json";
+import Drawer from "./Drawer";
 
 function GlobalStat() {
   const [viewport, setViewport] = useState({
@@ -15,51 +16,56 @@ function GlobalStat() {
   // useEffect(() => {
   //   const listener = (e) => {
   //     if (e.key === "Escape") {
-  //       setSelectedPark(null);
+  //       setSelectedCountry(null);
   //     }
   //   };
   //   window.addEventListener("keydown", listener);
   // }, []);
   return (
     <div className="map">
-      <ReactMapGL
-        {...viewport}
-        mapboxApiAccessToken={process.env.REACT_APP_MAPBOX_TOKEN}
-        mapStyle="mapbox://styles/irsidev/ck9op03tm1mwu1ilehmo42ozl"
-        onViewportChange={(viewport) => {
-          setViewport(viewport);
-        }}
-      >
-        {countryData.features.map((country, index) => (
-          <Marker
-            key={index}
-            latitude={country.geometry.coordinates[1]}
-            longitude={country.geometry.coordinates[0]}
-          >
-            <button
-              className="marker-btn"
-              onClick={(e) => {
-                e.preventDefault();
-                setSelectedCountry(country);
+      <Fragment>
+        <Drawer />
+        <ReactMapGL
+          {...viewport}
+          mapboxApiAccessToken={process.env.REACT_APP_MAPBOX_TOKEN}
+          mapStyle="mapbox://styles/irsidev/ck9op03tm1mwu1ilehmo42ozl"
+          onViewportChange={(viewport) => {
+            setViewport(viewport);
+          }}
+        >
+          {countryData.features.map((country, index) => (
+            <Marker
+              key={index}
+              latitude={country.geometry.coordinates[1]}
+              longitude={country.geometry.coordinates[0]}
+            >
+              <button
+                className="marker-btn"
+                onClick={(e) => {
+                  e.preventDefault();
+                  setSelectedCountry(country);
+                }}
+              >
+                <img className="icon" src="./garbage.png"></img>
+              </button>
+            </Marker>
+          ))}
+          {selectedCountry ? (
+            <Popup
+              latitude={selectedCountry.geometry.coordinates[1]}
+              longitude={selectedCountry.geometry.coordinates[0]}
+              onClose={() => {
+                setSelectedCountry(null);
               }}
             >
-              <img className="icon" src="./garbage.png"></img>
-            </button>
-          </Marker>
-        ))}
-        {selectedCountry ? (
-          <Popup
-            latitude={selectedCountry.geometry.coordinates[1]}
-            longitude={selectedCountry.geometry.coordinates[0]}
-            onClose={() => {
-              setSelectedCountry(null);
-            }}
-          >
-            <div>{selectedCountry.properties.name}</div>
-            <div>{selectedCountry.properties.value_waste}</div>
-          </Popup>
-        ) : null}
-      </ReactMapGL>
+              <h3>{selectedCountry.properties.name}</h3>
+              <div>
+                Losses {selectedCountry.properties.value_waste} tonnes of food
+              </div>
+            </Popup>
+          ) : null}
+        </ReactMapGL>
+      </Fragment>
     </div>
   );
 }
