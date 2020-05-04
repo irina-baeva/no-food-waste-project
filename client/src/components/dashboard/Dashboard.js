@@ -3,10 +3,8 @@ import { Link, Route, Switch } from "react-router-dom";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { getCurrentProfile } from "../../actions/profile";
-import GlobalStat from "./GlobalStat";
 import { makeStyles } from "@material-ui/core/styles";
 // import GlobalStat from "./GlobalStat";
-import LocalStat from "./LocalStat";
 // import Spinner from '../layout/spinner'
 import Drawer from "./Drawer";
 

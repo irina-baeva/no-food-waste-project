@@ -91,12 +91,11 @@ const data = {
 
 export default class SalesShrinkageBar extends Component {
   render() {
-    const displayName = "BarExample";
     return (
       <div className="chartWrap">
         <h2>
-          Trends of shrinkage, sales and stock in euros between 1st and 31st of
-          January 2020.
+          Trends of shrinkage, sales in euros between 1st and 31st of January
+          2020.
         </h2>
         <Line
           className="barChartWrap"

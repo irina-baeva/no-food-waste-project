@@ -12,7 +12,6 @@ function GlobalStat() {
     height: "100vh",
   });
   const [selectedCountry, setSelectedCountry] = useState(null);
-
   // useEffect(() => {
   //   const listener = (e) => {
   //     if (e.key === "Escape") {
