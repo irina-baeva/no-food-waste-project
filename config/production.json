@@ -1,0 +1,7 @@
+{
+  "mongoURI": "mongodb+srv://irina-baeva:irsi88@no-food-waste-db-oejjp.mongodb.net/test?retryWrites=true&w=majority",
+
+  "jwtSecret": "mysecrettoken",
+
+  "REACT_APP_MAPBOX_TOKEN": "pk.eyJ1IjoiaXJzaWRldiIsImEiOiJjazk2eXFtam0wamN0M2VtcHVtY2FjNDg0In0.3XwpBGvYodgShxGvYIsVKw"
+}
