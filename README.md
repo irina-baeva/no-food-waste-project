@@ -67,3 +67,82 @@ npm run build
 ```
 
 #### Documentation for API
+
+Check endpoints of API with Postman
+
+##### Register account
+
+##### Local endpoint:
+
+Post request with empty body:
+
+```sh
+http://localhost:5050/api/users
+```
+
+We get Errors:
+
+```sh
+{
+    "errors": [
+        {
+            "msg": "Name is required",
+            "param": "name",
+            "location": "body"
+        },
+        {
+            "msg": "Include valid email",
+            "param": "email",
+            "location": "body"
+        },
+        {
+            "msg": "Please, enter a password with 6 or more characters",
+            "param": "password",
+            "location": "body"
+        }
+    ]
+}
+```
+
+Post request with user who already registered with request body as following:
+
+```sh
+{
+	"name": "Irina",
+	"email": "irinabayova@gmail.com",
+	"password": "**********"
+}
+```
+
+We get Errors as a response:
+
+```sh
+{
+    "errors": [
+        {
+            "msg": "User already exists"
+        }
+    ]
+}
+```
+
+The following is an example of a valid request body for the Register Account:
+
+```sh
+{
+	"name": "Test Test",
+	"email": "test@gmail.com",
+	"password": "******"
+}
+```
+
+As a success response we get JWT token:
+
+```sh
+{
+    "token": "********************************.******************.**********************"
+}
+```
+
+And new test user appeared in Mongodb Atlas collections:
+![Registered user](./atlas_collection.png)
