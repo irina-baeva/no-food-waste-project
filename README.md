@@ -1,6 +1,6 @@
 # No-food-waste (Metro)
 
-Full stack application dashboard for a retailer company with data visualisations in order to raise awareness of employees on such a subjects as sustanability and food waste. It is a lerning semester project. Author was following: Udemy "MERN Stack Front To Back" by Brad Traversy for seting API, Material UI, Mapbox GL, ChartJS, JWT documentation.
+Full stack application dashboard for a retailer company with data visualisations in order to raise awareness of employees on such a subjects as sustanability and food waste. It is a lerning semester project. Author was using: Udemy "MERN Stack Front To Back" by Brad Traversy for seting API, and following documentations: Material UI, Mapbox GL, ChartJS, JWT.
 
 ## Deployed (work in progress)
 
