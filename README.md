@@ -1,6 +1,6 @@
 # No-food-waste (Metro)
 
-Full stack application dashboard for a retailer company with data visualisations in order to raise awareness of employees on such a subjects as sustanability and food waste.
+Full stack application dashboard for a retailer company with data visualisations in order to raise awareness of employees on such a subjects as sustanability and food waste. It is a lerning semester project. Author was following: Udemy "MERN Stack Front To Back" by Brad Traversy for seting API, Material UI, Mapbox GL, ChartJS, JWT documentation.
 
 ## Deployed (work in progress)
 
@@ -221,9 +221,9 @@ Response (since we did not created profile)
 
 ##### Post User Profile (work in progress)
 
-## Documentation for API
+## Documentation for Client
 
-Structure of frontend
+#### Structure of frontend
 
 ```sh
 client/
@@ -257,3 +257,15 @@ client/
    index.js
    store.js
 ```
+
+#### Libraries
+
+- [fortawesome library for React](https://github.com/FortAwesome/react-fontawesome) - icons
+- [material-ui](https://material-ui.com/fr/getting-started/installation/) - Material-UI components
+- [axios](https://github.com/axios/axios) - making requsts
+- [react-chartjs-2](https://github.com/jerairrest/react-chartjs-2) - React wrapper for Chart.js
+- [react-map-gl](https://github.com/visgl/react-map-gl) - React wrapper for MapboxGL JS
+- [react-redux](https://redux.js.org/basics/usage-with-react) - State management
+- [redux-devtools-extension](https://github.com/zalmoxisus/redux-devtools-extension) - Cool feature to understand what is happening with state components
+- [react-router-dom](https://reacttraining.com/react-router/web/guides/quick-start) - Create client-side routing
+- [uuis](https://github.com/uuidjs/uuid) - Generate unique ids
