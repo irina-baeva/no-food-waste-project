@@ -6,8 +6,6 @@ Full stack application dashboard for a retailer company with data visualisations
 
 https://guarded-ravine-01897.herokuapp.com/
 
----
-
 Created by: Irina Baeva.
 
 ---
@@ -65,6 +63,8 @@ Builds the app for production to the build folder
 ```sh
 npm run build
 ```
+
+---
 
 ## Documentation for API
 
@@ -221,6 +221,8 @@ Response (since we did not created profile)
 
 ##### Post User Profile (work in progress)
 
+---
+
 ## Documentation for Client
 
 #### Structure of frontend
@@ -260,7 +262,7 @@ client/
 
 #### Libraries
 
-- [fortawesome library for React](https://github.com/FortAwesome/react-fontawesome) - icons
+- [fontawesome library for React](https://github.com/FortAwesome/react-fontawesome) - icons
 - [material-ui](https://material-ui.com/fr/getting-started/installation/) - Material-UI components
 - [axios](https://github.com/axios/axios) - making requsts
 - [react-chartjs-2](https://github.com/jerairrest/react-chartjs-2) - React wrapper for Chart.js
@@ -269,3 +271,9 @@ client/
 - [redux-devtools-extension](https://github.com/zalmoxisus/redux-devtools-extension) - Cool feature to understand what is happening with state components
 - [react-router-dom](https://reacttraining.com/react-router/web/guides/quick-start) - Create client-side routing
 - [uuis](https://github.com/uuidjs/uuid) - Generate unique ids
+
+#### Frontend screens
+
+The main frontend screens are represented by map with number of food waste in European countries (statistics are taken from http://www.fao.org/faostat/en/#data/FBS ) and by data visualisations of sales and shrinkage
+![Map](./screens_images/map.png)
+![Local](./screens_images/local_stat.png)

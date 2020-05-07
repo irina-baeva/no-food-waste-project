@@ -59,7 +59,7 @@ function GlobalStat() {
             >
               <h3>{selectedCountry.properties.name}</h3>
               <div>
-                Losses {selectedCountry.properties.value_waste} tonnes of food
+                Food losses: {selectedCountry.properties.value_waste} tonnes
               </div>
             </Popup>
           ) : null}
