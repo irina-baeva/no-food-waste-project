@@ -70,7 +70,7 @@ npm run build
 
 Check endpoints of API with Postman
 
-##### Register account with local endpoint:
+##### Register User:
 
 _Post request with empty body:_
 
@@ -144,3 +144,56 @@ As a success response we get JWT token:
 
 And new test user appeared in Mongodb Atlas collections:
 ![Registered user](./atlas_collection.png)
+
+##### Get User:
+
+GET Request endpoint
+
+```sh
+http://localhost:5050/api/auth
+```
+
+Headers
+
+key: x-auth-token
+value: JWT_TOKEN_HERE
+
+Response body
+
+```sh
+
+{
+    "date": "2020-05-07T06:15:36.311Z",
+    "_id": "5eb3d0e6d9e3f59226b03432",
+    "name": "Test Test",
+    "email": "test@gmail.com",
+    "avatar": "",
+    "__v": 0
+}
+```
+
+##### Login user:
+
+_Post request to the following endpoint, header and body:_
+
+```sh
+http://localhost:5050/api/auth
+```
+
+Key: Content-Type
+Value: application/json
+
+```sh
+{
+	"email": "test@gmail.com",
+	"password": "******"
+}
+```
+
+As a success response we get JWT token:
+
+```sh
+{
+    "token": "********************************.******************.**********************"
+}
+```
