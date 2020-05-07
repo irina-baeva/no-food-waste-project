@@ -2,7 +2,7 @@
 
 Full stack application dashboard for a retailer company with data visualisations in order to raise awareness of employees on such a subjects as sustanability and food waste.
 
-## Deployed to Heroku
+## Deployed (WIP)
 
 https://guarded-ravine-01897.herokuapp.com/
 
@@ -12,13 +12,19 @@ Created by: Irina Baeva.
 
 ---
 
-Tech Stack:
+## Technologies:
 
 - Frontend: React + Redux + Material UI
 - Backend: NodeJS, Express
 - DataBase: MongoDB
 
 ---
+
+## Features
+
+- registration with email and password,
+- login, logout with JWT,
+- check local and global statistics
 
 ## Installation
 
@@ -41,6 +47,8 @@ cd ./client
 ```sh
 npm install
 ```
+
+You might want to look into config/production.json to set up your jwt secret word and MAPBOX TOKEN.
 
 #### Running the project
 
