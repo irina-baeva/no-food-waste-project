@@ -70,11 +70,9 @@ npm run build
 
 Check endpoints of API with Postman
 
-##### Register account
+##### Register account with local endpoint:
 
-##### Local endpoint:
-
-Post request with empty body:
+_Post request with empty body:_
 
 ```sh
 http://localhost:5050/api/users
@@ -104,7 +102,7 @@ We get Errors:
 }
 ```
 
-Post request with user who already registered with request body as following:
+_Post request with user who already registered with request body as following:_
 
 ```sh
 {
@@ -126,7 +124,7 @@ We get Errors as a response:
 }
 ```
 
-The following is an example of a valid request body for the Register Account:
+_The following is an example of a valid request body for the Register Account:_
 
 ```sh
 {
