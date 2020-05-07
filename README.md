@@ -15,8 +15,10 @@ Created by: Irina Baeva.
 ## Technologies:
 
 - Frontend: React + Redux + Material UI
-- Backend: NodeJS, Express
+- Backend: NodeJS, Express, JWT Authentication
 - DataBase: MongoDB
+
+![App Architecture](./app-architecture.png)
 
 ---
 
@@ -63,3 +65,5 @@ Builds the app for production to the build folder
 ```sh
 npm run build
 ```
+
+#### Documentation for API
