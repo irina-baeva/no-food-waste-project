@@ -1,12 +1,12 @@
-# No-food-waste (Metro)
+# No-food-waste
 
-Full stack application dashboard for a retailer company with data visualisations in order to raise awareness of employees on such a subjects as sustanability and food waste. It is a lerning semester project. Author was using: Udemy "MERN Stack Front To Back" by Brad Traversy for seting API, and following documentations: Material UI, Mapbox GL, ChartJS, JWT.
+Full stack application dashboard for a retailer company with data visualisations in order to raise awareness of employees on such a subjects as sustanability and food waste. It is a learning semester project. Author was using: Udemy "MERN Stack Front To Back" by Brad Traversy for seting API, and following documentations: Material UI, Mapbox GL, ChartJS, JWT.
 
 ## Deployed (work in progress)
 
 https://guarded-ravine-01897.herokuapp.com/
 
-Created by: Irina Baeva.
+Author: Irina Baeva.
 
 ---
 
@@ -34,7 +34,7 @@ Clone the project
 git clone https://github.com/irina-baeva/no-food-waste-project.git
 ```
 
-Install all required packages
+Install all required packages for backend and frontend
 
 ```sh
 npm install
@@ -52,7 +52,7 @@ You might want to look into config/production.json to set up your jwt secret wor
 
 #### Running the project
 
-Runs the app in the development mode and open http://localhost:3000 to view it in the browser.
+Run the app in the development mode and open http://localhost:3000 to view it in the browser. From root folder:
 
 ```sh
 npm run dev
@@ -61,6 +61,7 @@ npm run dev
 Builds the app for production to the build folder
 
 ```sh
+cd ./client
 npm run build
 ```
 
