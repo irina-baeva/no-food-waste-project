@@ -2,7 +2,7 @@
 
 Full stack application dashboard for a retailer company with data visualisations in order to raise awareness of employees on such a subjects as sustanability and food waste.
 
-## Deployed (WIP)
+## Deployed (work in progress)
 
 https://guarded-ravine-01897.herokuapp.com/
 
@@ -66,7 +66,7 @@ Builds the app for production to the build folder
 npm run build
 ```
 
-#### Documentation for API
+## Documentation for API
 
 Check endpoints of API with Postman
 
@@ -196,4 +196,64 @@ As a success response we get JWT token:
 {
     "token": "********************************.******************.**********************"
 }
+```
+
+##### Get User Profile:
+
+GET Request endpoint
+
+```sh
+http://localhost:5050/api/profile/me
+```
+
+Headers
+
+key: x-auth-token
+value: JWT_TOKEN_HERE
+
+Response (since we did not created profile)
+
+```sh
+{
+     "msg": "There is no profile for the user"
+}
+```
+
+##### Post User Profile (work in progress)
+
+## Documentation for API
+
+Structure of frontend
+
+```sh
+client/
+  node_modules/
+  .env
+  .gitignore
+  package.json
+  public/
+  src/
+   actions
+   components/
+      authentification/
+         Login.js
+         Register.js
+      dashboard/
+         Dashboard.js
+         Drawer.js
+         GlobalStat.js
+         LocalStat.js
+         SalesShrinkageBar.js
+         WeekdayPie.js
+      layout/
+         Alert.js
+         Landing.js
+         Navbar.js
+      routing/
+   reducers/
+   utils
+   App.css
+   App.js
+   index.js
+   store.js
 ```
